@@ -22,6 +22,10 @@ http {
       ';
     }
 
+    location /foo.text {
+      alias /var/www/certbot/foo.text;
+    }
+
     location /static/ {
       alias static/;
     }

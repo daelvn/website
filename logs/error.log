@@ -1,0 +1,10 @@
+2020/04/03 15:50:47 [alert] 2072#0: lua_code_cache is off; this will hurt performance in /home/dael/public_html/nginx.conf.compiled:16
+2020/04/03 16:35:47 [alert] 15142#0: lua_code_cache is off; this will hurt performance in /home/dael/public_html/nginx.conf.compiled:16
+2020/04/03 16:40:18 [alert] 16121#0: lua_code_cache is off; this will hurt performance in /home/dael/public_html/nginx.conf.compiled:16
+2020/04/03 16:44:20 [alert] 17046#0: lua_code_cache is off; this will hurt performance in /home/dael/public_html/nginx.conf.compiled:16
+2020/04/03 16:46:43 [alert] 17692#0: lua_code_cache is off; this will hurt performance in /home/dael/public_html/nginx.conf.compiled:16
+2020/04/03 16:46:59 [alert] 17799#0: lua_code_cache is off; this will hurt performance in /home/dael/public_html/nginx.conf.compiled:16
+2020/04/03 16:50:40 [alert] 18520#0: lua_code_cache is off; this will hurt performance in /home/dael/public_html/nginx.conf.compiled:16
+2020/04/03 17:01:35 [alert] 20913#0: lua_code_cache is off; this will hurt performance in /home/dael/public_html/nginx.conf.compiled:16
+2020/04/03 17:35:00 [alert] 28124#0: lua_code_cache is off; this will hurt performance in /home/dael/public_html/nginx.conf.compiled:16
+2020/04/03 17:44:56 [alert] 30403#0: lua_code_cache is off; this will hurt performance in /home/dael/public_html/nginx.conf.compiled:16

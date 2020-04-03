@@ -8,3 +8,20 @@
 2020/04/03 17:01:35 [alert] 20913#0: lua_code_cache is off; this will hurt performance in /home/dael/public_html/nginx.conf.compiled:16
 2020/04/03 17:35:00 [alert] 28124#0: lua_code_cache is off; this will hurt performance in /home/dael/public_html/nginx.conf.compiled:16
 2020/04/03 17:44:56 [alert] 30403#0: lua_code_cache is off; this will hurt performance in /home/dael/public_html/nginx.conf.compiled:16
+2020/04/03 20:14:27 [alert] 9788#0: lua_code_cache is off; this will hurt performance in /home/dael/www/nginx.conf.compiled:16
+2020/04/03 21:21:56 [alert] 29761#0: lua_code_cache is off; this will hurt performance in /home/dael/www/nginx.conf.compiled:16
+2020/04/03 21:23:09 [alert] 30359#0: lua_code_cache is off; this will hurt performance in /home/dael/www/nginx.conf.compiled:16
+2020/04/03 21:23:49 [alert] 30585#0: lua_code_cache is off; this will hurt performance in /home/dael/www/nginx.conf.compiled:16
+2020/04/03 21:26:40 [alert] 387#0: lua_code_cache is off; this will hurt performance in /home/dael/www/nginx.conf.compiled:16
+2020/04/03 21:26:40 [warn] 387#0: the "ssl" directive is deprecated, use the "listen ... ssl" directive instead in /home/dael/www/nginx.conf.compiled:18
+2020/04/03 21:26:40 [emerg] 387#0: directive "ssl_certificate" is not terminated by ";" in /home/dael/www/nginx.conf.compiled:22
+2020/04/03 21:27:42 [alert] 1142#0: lua_code_cache is off; this will hurt performance in /home/dael/www/nginx.conf.compiled:16
+2020/04/03 21:27:42 [emerg] 1142#0: unknown directive "ssl_certificate_Key" in /home/dael/www/nginx.conf.compiled:19
+2020/04/03 21:27:55 [alert] 1284#0: lua_code_cache is off; this will hurt performance in /home/dael/www/nginx.conf.compiled:16
+2020/04/03 21:27:55 [emerg] 1284#0: BIO_new_file("/home/daelvn/.ssl/daelvn.com.crt") failed (SSL: error:02FFF002:system library:func(4095):No such file or directory:fopen('/home/daelvn/.ssl/daelvn.com.crt', 'r') error:20FFF080:BIO routines:CRYPTO_internal:no such file)
+2020/04/03 21:28:52 [alert] 1834#0: lua_code_cache is off; this will hurt performance in /home/dael/www/nginx.conf.compiled:16
+2020/04/03 21:28:52 [emerg] 1834#0: SSL_CTX_use_PrivateKey_file("/home/dael/.ssh/daelvn.com.key") failed (SSL: error:02FFF002:system library:func(4095):No such file or directory:fopen('/home/dael/.ssh/daelvn.com.key', 'r') error:20FFF002:BIO routines:CRYPTO_internal:system lib error:14FFF002:SSL routines:(UNKNOWN)SSL_internal:system lib)
+2020/04/03 21:29:09 [alert] 2075#0: lua_code_cache is off; this will hurt performance in /home/dael/www/nginx.conf.compiled:16
+2020/04/03 21:41:33 [alert] 8413#0: lua_code_cache is off; this will hurt performance in /home/dael/www/nginx.conf.compiled:16
+2020/04/03 21:41:33 [emerg] 8413#0: no "ssl_certificate" is defined for the "listen ... ssl" directive in /home/dael/www/nginx.conf.compiled:14
+2020/04/03 21:41:46 [alert] 8538#0: lua_code_cache is off; this will hurt performance in /home/dael/www/nginx.conf.compiled:16

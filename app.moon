@@ -1,19 +1,22 @@
-lapis = require "lapis"
+lapis   = require "lapis"
+iiin    = require "i18n"
 inspect = require "inspect"
-iiin  = require "i18n"
 
 class Homepage extends lapis.Application
   -- layout
   layout: require "views.layout"
-  -- i18n
+  -- include applications
+  @include "applications.poetry"
+  -- before
   @before_filter =>
     -- helper functions
-    @iiin   = (...) => iiin ...
+    @iiin = (...) => iiin ...
     -- set locale
-    locale = @params.lang or "en"
-    iiin.loadFile "i18n/#{locale}.lua"
-    iiin.setLocale locale
-  -- routes
+    @session.locale = @params.lang or @session.locale or "en"
+    iiin.loadFile "i18n/#{@session.locale}.lua"
+    iiin.setLocale @session.locale
+  --# routes #--
+  -- /
   "/": =>
     @title       = "example page"
     @description = "just an example"

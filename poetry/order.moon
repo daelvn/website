@@ -1,5 +1,16 @@
 -- order of all poems
 {
+  FOLDERS: {
+    "starters"
+    "philosophical"
+    "dreams"
+    "odes"
+    "heartbreak"
+    "constellate"
+    "constellate2"
+    "angelic"
+    "other"
+  }
   starters: {
     "snow.html"
     "path.html"
@@ -55,6 +66,6 @@
     "alone.html"
   }
   other: {
-    "create.md"
+    "create.html"
   }
 }

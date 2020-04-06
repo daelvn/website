@@ -1,22 +1,29 @@
 import Widget from require "lapis.html"
 fs               = require "filekit"
 
+-- removes html suffix
+basename = (f) -> f\match "(.+)%.html"
+
+-- order of files and folders
+order = require "poetry.order"
+
 class Poetry extends Widget
   content: =>
     -- title
     h1 @iiin "p_index"
     -- description
-    blockquote raw @iiin "p_description"
+    blockquote -> p -> raw @iiin "p_description"
     -- add sections
-    for folder in fs.ilist "poetry/en/"
-      node = fs.combine "poetry/en/", folder
-      continue if fs.isFile node
+    for folder in *order.FOLDERS
+      ngx.log ngx.NOTICE, "generating category #{folder}"
       h2 @iiin "ps_#{folder}"
       -- add section descriptions
-      blockquote @iiin "pd_#{folder}"
+      blockquote -> p @iiin "pd_#{folder}"
       -- list all files and order them
-      ordered = dofile fs.combine node, "order.lua"
-      for file in *ordered[folder]
-        a href: "/poetry/#{folder}/#{file}", @iiin "pf_#{folder}_#{file}"
-      
+      p ->
+        for file in *order[folder]
+          ngx.log ngx.NOTICE, "generating index #{folder}/#{file}"
+          ff = basename file
+          a href: "/poetry/#{ff}", @iiin "pf_#{folder}_#{ff}"
+          br!
     

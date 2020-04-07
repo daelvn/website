@@ -11,6 +11,11 @@ events {
 http {
   include mime.types;
 
+  # proxy_cache_path cache/nginx/ levels=1:2 keys_zone=lcache:10m max_size=1g inactive=60m use_temp_path=off;
+  # proxy_cache_use_stale error timeout http_500 http_502 http_503 http_504;
+  # proxy_cache lcache;
+  lua_shared_dict page_cache 15m;
+
   init_by_lua_block {
     require "socket"
     require "lpeg"

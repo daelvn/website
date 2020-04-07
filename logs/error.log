@@ -92,3 +92,15 @@
 2020/04/06 12:44:57 [alert] 4404#0: lua_code_cache is off; this will hurt performance in /home/daelvn/dev/website/nginx.conf.compiled:22
 2020/04/06 12:54:37 [alert] 4774#0: lua_code_cache is off; this will hurt performance in /home/daelvn/dev/website/nginx.conf.compiled:22
 2020/04/06 12:56:38 [alert] 4853#0: lua_code_cache is off; this will hurt performance in /home/daelvn/dev/website/nginx.conf.compiled:22
+2020/04/06 13:00:24 [alert] 5018#0: lua_code_cache is off; this will hurt performance in /home/daelvn/dev/website/nginx.conf.compiled:22
+2020/04/06 13:23:50 [emerg] 5250#0: "proxy_cache_path" directive is not allowed here in /home/daelvn/dev/website/nginx.conf.compiled:6
+2020/04/06 13:24:07 [alert] 5308#0: lua_code_cache is off; this will hurt performance in /home/daelvn/dev/website/nginx.conf.compiled:25
+2020/04/06 13:34:07 [alert] 5462#0: lua_code_cache is off; this will hurt performance in /home/daelvn/dev/website/nginx.conf.compiled:26
+2020/04/06 13:34:40 [alert] 5531#0: lua_code_cache is off; this will hurt performance in /home/daelvn/dev/website/nginx.conf.compiled:26
+2020/04/06 13:35:29 [alert] 5614#0: lua_code_cache is off; this will hurt performance in /home/daelvn/dev/website/nginx.conf.compiled:27
+2020/04/06 13:36:01 [alert] 5689#0: lua_code_cache is off; this will hurt performance in /home/daelvn/dev/website/nginx.conf.compiled:27
+2020/04/06 13:36:40 [alert] 5766#0: lua_code_cache is off; this will hurt performance in /home/daelvn/dev/website/nginx.conf.compiled:27
+2020/04/07 11:19:33 [alert] 991#0: lua_code_cache is off; this will hurt performance in /home/daelvn/dev/website/nginx.conf.compiled:27
+2020/04/07 11:19:51 [alert] 1050#0: lua_code_cache is off; this will hurt performance in /home/daelvn/dev/website/nginx.conf.compiled:27
+2020/04/07 11:21:43 [alert] 1139#0: lua_code_cache is off; this will hurt performance in /home/daelvn/dev/website/nginx.conf.compiled:27
+2020/04/07 11:22:20 [alert] 1218#0: lua_code_cache is off; this will hurt performance in /home/daelvn/dev/website/nginx.conf.compiled:27

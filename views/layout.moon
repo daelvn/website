@@ -6,6 +6,7 @@ class DefaultLayout extends html.Widget
     html_5 ->
       head ->
         link rel: "stylesheet", type: "text/css",  href: "/static/refine.css"
+        link rel: "stylesheet", type: "text/css",  href: "/static/extra.css"
         link rel: "icon",       type: "image/png", href: "/static/favicon-32.png"
         title @title or "dael's blog."
         -- other meta
@@ -20,10 +21,16 @@ class DefaultLayout extends html.Widget
         meta property: "og:url",         content: "https://daelvn.com"
         meta property: "og:image",       content: @thumbnail
         -- fengari
-        -- script src: "/static/vendor/fengari-web.js", type: "text/javascript"
+        script src: "/static/vendor/fengari-web.js", type: "text/javascript"
         -- scripts
-        --script src: "/static/lua/locale.lua", type: "application/lua"
+        script src: "https://kit.fontawesome.com/5a83bed402.js", crossorigin: "anonymous"
+        script src: "/static/lua/scroll.lua",   type: "application/lua"
+        script src: "/static/lua/lastpage.lua", type: "application/lua"
       body id: "write", ->
+        -- back button
+        div id: "lastpage-container", ->
+          -- Last page button
+          -- button id: "lastpage", onclick: "window.history.go(-1); return false;", title: "Go back", -> i class: "fas fa-arrow-left"
         -- language selection
         div style: "float: right;", ->
           form action: "", method: "post", ->
@@ -32,5 +39,20 @@ class DefaultLayout extends html.Widget
             button class: "link", name: "lang", value: "es", "español"
         -- content
         @content_for "inner"
+        -- scroll to top button
+        button id: "scrollback", title: "Go up", -> i class: "fas fa-arrow-up"
         -- attribution
-        blockquote -> raw @footer
+        --blockquote -> raw @footer
+        -- social media
+        hr class: "footer-hr"
+        footer id: "footer", ->
+          span ->
+            a class: "footer-link", href: "/sn/github",    -> i class: "fab fa-github"
+            a class: "footer-link", href: "/sn/spotify",   -> i class: "fab fa-spotify"
+            a class: "footer-link", href: "/sn/discord",   -> i class: "fab fa-discord"
+            a class: "footer-link", href: "/sn/instagram", -> i class: "fab fa-instagram"
+            a class: "footer-link", href: "/sn/pinterest", -> i class: "fab fa-pinterest"
+            a class: "footer-link", href: "/sn/mail",      -> i class: "far fa-envelope"
+            br!
+            --span style: "font-size: 11px;", -> raw "made by dael. powered by <a href='https://leafo.net/lapis'>lapis</a> by @leafo. kindly hosted by <a href='https://ahti.space'>ahti.space</a>."
+            span style: "font-size: 11px;", -> raw @iiin "footer"

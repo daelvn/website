@@ -1,9 +1,41 @@
 en:
+  -- index
   index:  "dael."
-  footer: "theme is <a href='https://github.com/heisenburger/typora-theme-refine'>Refine</a> by @heisenburger.<br>content by dael unless specified otherwise."
+  intro:  "welcome to my blog. this is where i dump all things that go through my head."
+  footer: [[
+    theme is <a href='https://github.com/heisenburger/typora-theme-refine'>refine</a> by @heisenburger.<br>
+    made by @daelvn.<br>
+    powered by <a href='https://leafo.net/lapis'>lapis</a> by @leafo.<br>
+    kindly hosted by <a href='https://ahti.space'>ahti.space</a>.
+  ]]
+  -- discord
+  disc_h1: "hey there,"
+  disc_h2: "hello, kind traveler, please take my discord."
+  -- sections
+  links:       "links"
+  sen_poetry:  "poetry"
+  sed_poetry:  "all the poetry i've ever written."
+  sen_blog:    "blog"
+  sed_blog:    "my incoherent thoughts all together."
+  sen_gallery: "gallery"
+  sed_gallery: "my brief collection of mirrors of the self."
+  -- gallery
+  g_index:       "gallery."
+  g_title:       "dael's gallery."
+  g_description: "my brief collection of mirrors of the self. things that are me, represent me, or connect with me."
+  -- blog
+  b_index:       "blog."
+  b_title:       "dael's blog."
+  b_description: "dael's blog and incoherent thoughts."
+  b_date:        "date."
+  b_entry:       "entry."
+  --
+  ["be_06_humanity"]:       "humanity."
+  ["be_08_go-back"]:        "go back."
+  ["be_08_accessible-art"]: "accessible art."
   -- poetry
-  p_index:       "poetry"
-  p_title:       "dael's poetry"
+  p_index:       "poetry."
+  p_title:       "dael's poetry."
   p_description: "dael's poetry index.<br>report typos or suggestions to <a href='mailto:daelvn@gmail.com'>my email</a>."
   --
   ps_angelic:       "angelic"
@@ -40,6 +72,7 @@ en:
   ["pf_heartbreak_remedy"]:         "remedy for a broken heart"
   ["pf_heartbreak_time"]:           "time does not heal but being alone does"
   ["pf_heartbreak_win"]:            "you win"
+  ["pf_heartbreak_always"]:         "always"
   ["pf_constellate_stages"]:        "stages"
   ["pf_constellate_drive"]:         "drive"
   ["pf_constellate_constellate-1"]: "constellate pt. i"
@@ -60,7 +93,8 @@ en:
   ["pf_angelic_interlude-2"]:       "[interlude ii]"
   ["pf_angelic_10-12-2019"]:        "10.12.2019"
   ["pf_angelic_source"]:            "source"
-  ["pf_angelic_path"]:              "path"
+  ["pf_angelic_come"]:              "come"
   ["pf_angelic_feel"]:              "feel"
   ["pf_angelic_alone"]:             "alone"
   ["pf_other_create"]:              "CREATE"
+  ["pf_other_back"]:                "go back"

@@ -35,6 +35,7 @@
     "remedy.html"
     "time.html"
     "win.html"
+    "always.html"
   }
   constellate: {
     "stages.html"
@@ -61,11 +62,12 @@
     "interlude-2.html"
     "10-12-2019.html"
     "source.html"
-    "path.html"
+    "come.html"
     "feel.html"
     "alone.html"
   }
   other: {
     "create.html"
+    "back.html"
   }
 }

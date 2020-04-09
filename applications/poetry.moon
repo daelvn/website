@@ -12,7 +12,7 @@ findPoem = (file) ->
 
 -- reads the contents of an html file
 readfile = (file) ->
-  ngx.log ngx.NOTICE, "opening #{file.html} to display"
+  --ngx.log ngx.NOTICE, "opening #{file.html} to display"
   local contents
   with io.open "#{file}.html", "r"
     contents = \read "*a"
@@ -42,5 +42,11 @@ class Poetry extends lapis.Application
     category = findPoem @params.file
     return status: 404 unless category
     --
-    content = readfile "poetry/#{@session.locale}/#{category}/#{@params.file}"
+    @title       = (iiin "pf_#{category}_#{@params.file}") .. "."
+    @description = iiin "p_description"
+    @footer      = iiin "footer"
+    content      = readfile "poetry/#{@session.locale}/#{category}/#{@params.file}"
     return content
+  -- /poetry/raw/:file
+  "/poetry/raw/:file": =>
+    layout: false, readfile "poetry/raw/#{@session.locale}/#{@params.file}"

@@ -1,7 +1,7 @@
 {
+  "social"
   "portfolio"
-  "poetry"
   "blog"
+  "poetry"
   "roleplay"
-  --"gallery"
 }

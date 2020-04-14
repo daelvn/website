@@ -11,6 +11,11 @@ en:
   -- discord
   disc_h1: "hey there,"
   disc_h2: "hello, kind traveler, please take my discord."
+  -- 404 page
+  ["404_title"]:       "what we lost."
+  ["404_description"]: "404. we really couldn't find what you were looking for."
+  ["404_h1"]:          "the lost."
+  ["404_p"]:           "the page you're looking for does not exist. are you sure you got the right URL?"
   -- sections
   links:       "links"
   sen_poetry:  "poetry"

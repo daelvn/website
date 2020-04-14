@@ -1,15 +1,31 @@
 tasks:
+  -- compiles moonscript files
   compile: ->
     for file in wildcard "**.moon"
       continue if file\match "Alfons"
       moonc file
+  -- runs the server
   run: ->
     sh "lapis server development"
+  -- installs dependencies
+  install_deps: ->
+    deps = {
+      "lapis"
+      "i18n"
+      "filekit"
+      "inspect"
+      "htmlparser"
+    }
+    for dep in *deps
+      print "installing dependency: #{dep}"
+      sh "luarocks install #{dep}"
+  -- cleans useless files
   clean: ->
     for file in wildcard "**.lua"
       fs.delete file
     for dir in wildcard "*_temp"
       fs.delete dir
+  -- unstyles poems in poetryrx/
   unstyle: ->
     inspect = require "inspect"
     html    = require "htmlparser"

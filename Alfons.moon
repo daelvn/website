@@ -17,7 +17,7 @@ tasks:
       "htmlparser"
     }
     for dep in *deps
-      print "installing dependency: #{dep}"
+      print "==> installing dependency: #{dep}"
       sh "luarocks install #{dep}"
   -- cleans useless files
   clean: ->

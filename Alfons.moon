@@ -25,7 +25,7 @@ tasks:
       fs.delete file
     for dir in wildcard "*_temp"
       fs.delete dir
-  -- unstyles poems in poetryrx/
+  -- unstyles poems in page/poetryrx/
   unstyle: ->
     inspect = require "inspect"
     html    = require "htmlparser"

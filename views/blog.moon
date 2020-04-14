@@ -23,7 +23,7 @@ npairs = (t) ->
 -- add entries
 local sorted
 do
-  files  = fs.list1 "blog/en/"
+  files  = fs.list1 "page/blog/en/"
   byDate = {}
   for file in *files
     continue if     file == "raw"

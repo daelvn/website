@@ -1,7 +1,7 @@
 lapis   = require "lapis"
 iiin    = require "i18n"
 
-charExists = (ch) -> fs.exists "rp/#{ch}/"
+charExists = (ch) -> fs.exists "page/rp/#{ch}/"
 
 class Roleplay extends lapis.Application
   -- layout
@@ -35,4 +35,4 @@ class Roleplay extends lapis.Application
     @title       = iiin "rp_chart_#{@params.char}"
     @description = iiin "rp_chard_#{@params.char}"
     @footer      = iiin "footer"
-    content      = readfile "rp/#{@params.char}/bio.html"
+    content      = readfile "page/rp/#{@params.char}/bio.html"

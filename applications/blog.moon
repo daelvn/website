@@ -31,11 +31,11 @@ class Blog extends lapis.Application
     @description = iiin "b_description"
     render: "blog"
   "/blog/:yyyy/:mm/:name": =>
-    file         = (fs.glob "blog/#{@session.locale}/*.#{twodigit @params.mm}.#{@params.yyyy}-#{@params.name}.html")[1]
+    file         = (fs.glob "page/blog/#{@session.locale}/*.#{twodigit @params.mm}.#{@params.yyyy}-#{@params.name}.html")[1]
     @title       = iiin "be_#{@params.name}"
     @description = iiin "b_description"
     content      = readfile file
     return content
   "/blog/raw/:file": =>
-    layout: false, readfile "blog/#{@session.locale}/raw/#{@params.file}"
+    layout: false, readfile "page/blog/#{@session.locale}/raw/#{@params.file}"
   "/blog/*": => redirect_to: "/blog"

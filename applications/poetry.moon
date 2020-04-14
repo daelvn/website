@@ -45,8 +45,8 @@ class Poetry extends lapis.Application
     @title       = (iiin "pf_#{category}_#{@params.file}") .. "."
     @description = iiin "p_description"
     @footer      = iiin "footer"
-    content      = readfile "poetry/#{@session.locale}/#{category}/#{@params.file}"
+    content      = readfile "page/poetry/#{@session.locale}/#{category}/#{@params.file}"
     return content
   -- /poetry/raw/:file
   "/poetry/raw/:file": =>
-    layout: false, readfile "poetry/raw/#{@session.locale}/#{@params.file}"
+    layout: false, readfile "page/poetry/raw/#{@session.locale}/#{@params.file}"

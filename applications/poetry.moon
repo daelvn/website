@@ -1,9 +1,9 @@
 import cached from require "lapis.cache"
-lapis = require "lapis"
-iiin  = require "i18n"
+lapis            = require "lapis"
+iiin             = require "i18n"
 
 -- function to find the folder for a file
-order    = require "poetry.order"
+order    = require "static.lists.poems"
 findPoem = (file) ->
   for categ, t in pairs order
     for fl in *t
@@ -30,6 +30,12 @@ class Poetry extends lapis.Application
     @session.locale = @params.lang or @session.locale or "en"
     iiin.loadFile "i18n/#{@session.locale}.lua"
     iiin.setLocale @session.locale
+    -- check access
+    @session.access or= "key:basic"
+    checkAccess = require "util.access"
+    levels      = require "static.lists.access"
+    unless checkAccess "poetry", levels[@session.access]
+      return @write redirect_to: "/login?redirect=#{@req.parsed_url.path}"
   --# routes #--
   -- /poetry
   "/poetry": =>

@@ -5,7 +5,7 @@ fs               = require "filekit"
 basename = (f) -> f\match "(.+)%.html"
 
 -- order of files and folders
-order = require "poetry.order"
+order = require "static.lists.poems"
 
 class Poetry extends Widget
   content: =>

@@ -109,3 +109,26 @@ iframe {
   height: 100%;
   width: 100%;
 }
+
+#login {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+/* #login button {
+  border: none;
+  background-color: white;
+  color: black;
+  padding: 10px;
+} */
+
+#login input {
+  border: none;
+  background-color: lightgray;
+  color: black;
+  padding: 10px;
+}

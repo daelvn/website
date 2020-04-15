@@ -7,5 +7,6 @@ class Index extends Widget
     blockquote -> p @iiin "intro"
     h2 @iiin "links"
     for section in *sections
-      h3 -> a href: "/#{section}", @iiin "sen_#{section}"
+      sct = if section == "roleplay" then "rp" else section
+      h3 -> a href: "/#{sct}", @iiin "sen_#{section}"
       blockquote -> p @iiin "sed_#{section}"

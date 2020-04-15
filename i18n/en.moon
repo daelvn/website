@@ -3,31 +3,64 @@ en:
   index:  "dael."
   intro:  "welcome to my blog. this is where i dump all things that go through my head."
   footer: [[
+    <a href="/login">login.</a><span> · </span><a href="logout/">logout.</a><br>
     theme is <a href='https://github.com/heisenburger/typora-theme-refine'>refine</a> by @heisenburger.<br>
     made by @daelvn.<br>
     powered by <a href='https://leafo.net/lapis'>lapis</a> by @leafo.<br>
     kindly hosted by <a href='https://ahti.space'>ahti.space</a>.
   ]]
+
   -- discord
   disc_h1: "hey there,"
   disc_h2: "hello, kind traveler, please take my discord."
+
+  -- login page
+  login: "log in."
+
   -- 404 page
   ["404_title"]:       "what we lost."
   ["404_description"]: "404. we really couldn't find what you were looking for."
   ["404_h1"]:          "the lost."
   ["404_p"]:           "the page you're looking for does not exist. are you sure you got the right URL?"
+  
   -- sections
-  links:       "links"
-  sen_poetry:  "poetry"
-  sed_poetry:  "all the poetry i've ever written."
-  sen_blog:    "blog"
-  sed_blog:    "my incoherent thoughts all together."
-  sen_gallery: "gallery"
-  sed_gallery: "my brief collection of mirrors of the self."
+  links:         "links"
+  sen_poetry:    "poetry"
+  sed_poetry:    "all the poetry i've ever written."
+  sen_portfolio: "portfolio"
+  sed_portfolio: "the many projects i've made"
+  sen_blog:      "blog"
+  sed_blog:      "my incoherent thoughts all together."
+  sen_gallery:   "gallery"
+  sed_gallery:   "my brief collection of mirrors of the self."
+  sen_roleplay:  "roleplay"
+  sed_roleplay:  "all my resources related to roleplaying"
+  
+  -- roleplay
+  rp_index:       "roleplay."
+  rp_title:       "dael's roleplay."
+  rp_description: "my collection of characters i use for roleplaying."
+  rp_section:     "section."
+  rp_resources:   "resources."
+  --
+  ["rp_universe_rolverso"]: "rol;verse"
+  ["rp_universe_rolversa"]: "rol;versa"
+  --
+  ["rp_section_dael"]: "Dael Vnaja"
+  --
+  ["rp_link_bio"]:      "bio"
+  ["rp_link_map"]:      "map"
+  ["rp_link_images"]:   "images"
+  ["rp_link_universe"]: "universe"
+  --
+  ["rp_chart_dael"]: "Dael Vnaja"
+  ["rp_chard_dael"]: "my blatant self-insert OC."
+
   -- gallery
   g_index:       "gallery."
   g_title:       "dael's gallery."
   g_description: "my brief collection of mirrors of the self. things that are me, represent me, or connect with me."
+  
   -- blog
   b_index:       "blog."
   b_title:       "dael's blog."
@@ -38,6 +71,7 @@ en:
   ["be_06_humanity"]:       "humanity."
   ["be_08_go-back"]:        "go back."
   ["be_08_accessible-art"]: "accessible art."
+  
   -- poetry
   p_index:       "poetry."
   p_title:       "dael's poetry."

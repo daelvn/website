@@ -12,6 +12,12 @@ class Portfolio extends lapis.Application
     @session.locale = @params.lang or @session.locale or "en"
     iiin.loadFile "i18n/#{@session.locale}.lua"
     iiin.setLocale @session.locale
+    -- check access
+    @session.access or= "key:basic"
+    checkAccess = require "util.access"
+    levels      = require "static.lists.access"
+    unless checkAccess "portfolio", levels[@session.access]
+      return @write redirect_to: "/login?redirect=#{@req.parsed_url.path}"
   --# routes #--
   "/portfolio": =>
     @title       = iiin "pf_title"

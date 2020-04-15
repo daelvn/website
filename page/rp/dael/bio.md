@@ -4,10 +4,10 @@
 
 **Nombre**   Dael Vnaja
 **Edad**   20 años (20 de Julio)
-**Raza**    ?????
+**Raza**   ?????
 **Género**   No-binario
-**Orientación**   Asexual biromántico
-**Altura**    171cm
+**Orientación**   Asexual
+**Altura**   171cm
 
 ## biografía
 
@@ -17,7 +17,7 @@ Dael nace en el pueblo de *Forvilarna* en *Svaneireii*, y lleva una vida normal 
 
 ![https://i.pinimg.com/564x/81/b0/76/81b0762503f60e997224ddb2cb28351f.jpg](https://i.pinimg.com/564x/81/b0/76/81b0762503f60e997224ddb2cb28351f.jpg)
 
-![image-20200411202839933](C:\Users\crimu\AppData\Roaming\Typora\typora-user-images\image-20200411202839933.png)
+![dael-bio-2](/static/img/dael-bio-2.png)
 
 (si, esa es su apariencia habitual, con ropa y todo. el pelo es mas como en la segunda foto.)
 

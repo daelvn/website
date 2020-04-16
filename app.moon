@@ -20,6 +20,8 @@ class Homepage extends lapis.Application
     @include "applications.#{app}"
   -- before
   @before_filter =>
+    -- iframe header
+    @res.headers["X-Frame-Options"] = "SAMEORIGIN"
     -- helper functions
     @iiin = (...) => iiin ...
     -- set locale

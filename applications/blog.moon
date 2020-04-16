@@ -19,6 +19,8 @@ class Blog extends lapis.Application
   layout: require "views.layout"
   -- before
   @before_filter =>
+    -- iframe header
+    @res.headers["X-Frame-Options"] = "SAMEORIGIN"s
     -- helper functions
     @iiin = (...) => iiin ...
     -- set locale

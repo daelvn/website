@@ -10,6 +10,8 @@ class Access extends lapis.Application
   layout: require "views.layout"
   -- before
   @before_filter =>
+    -- iframe header
+    @res.headers["X-Frame-Options"] = "SAMEORIGIN"
     -- helper functions
     @iiin = (...) => iiin ...
     -- set locale

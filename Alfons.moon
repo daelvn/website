@@ -19,6 +19,19 @@ tasks:
     for dep in *deps
       print "==> installing dependency: #{dep}"
       sh "luarocks install #{dep}"
+  -- installs dependencies
+  install_deps: (bin="luarocks") =>
+    deps = {
+      "lapis"
+      "i18n"
+      "filekit"
+      "inspect"
+      "htmlparser"
+      "moonscript"
+    }
+    for dep in *deps
+      print "==> installing dependency: #{dep}"
+      sh "#{bin} install #{dep}"
   -- cleans useless files
   clean: ->
     for file in wildcard "**.lua"

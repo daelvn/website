@@ -43,4 +43,4 @@ class Homepage extends lapis.Application
     render: "index"
   -- /empty
   "/empty": =>
-    layout: false, " "
+    layout: false, headers: {["X-Frame-Options"]: "SAMEORIGIN"}, " "

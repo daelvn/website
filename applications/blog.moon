@@ -20,7 +20,7 @@ class Blog extends lapis.Application
   -- before
   @before_filter =>
     -- iframe header
-    @res.headers["X-Frame-Options"] = "SAMEORIGIN"s
+    @res.headers["X-Frame-Options"] = "SAMEORIGIN"
     -- helper functions
     @iiin = (...) => iiin ...
     -- set locale

@@ -22,9 +22,14 @@ tasks:
   -- cleans useless files
   clean: ->
     for file in wildcard "**.lua"
+      continue if file\match "lists/avatars"
       fs.delete file
     for dir in wildcard "*_temp"
       fs.delete dir
+  -- generate avatar files
+  genavatars: ->
+    sh "mv static/lists/avatars.lua static/lists/avatars.old.lua"
+    sh "moon util/genavatars.moon > static/lists/avatars.lua"
   -- unstyles poems in page/poetryrx/
   unstyle: ->
     inspect = require "inspect"

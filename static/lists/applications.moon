@@ -1,8 +1,11 @@
 {
+  -- pages depend on these
   "social"
-  "portfolio"
+  "access"
+  -- other sections
+  --"portfolio"
   "blog"
   "poetry"
   "roleplay"
-  "access"
+  "avatars"
 }

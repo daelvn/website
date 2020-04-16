@@ -27,15 +27,20 @@ en:
   links:         "links"
   sen_poetry:    "poetry"
   sed_poetry:    "all the poetry i've ever written."
-  sen_portfolio: "portfolio"
-  sed_portfolio: "the many projects i've made"
   sen_blog:      "blog"
   sed_blog:      "my incoherent thoughts all together."
   sen_gallery:   "gallery"
   sed_gallery:   "my brief collection of mirrors of the self."
   sen_roleplay:  "roleplay"
-  sed_roleplay:  "all my resources related to roleplaying"
+  sed_roleplay:  "all my resources related to roleplaying."
+  sen_avatars:   "avatars"
+  sed_avatars:   "my long list of avatars i use and their sources."
   
+  -- avatars
+  av_index:       "avatars."
+  av_title:       "dael's avatars."
+  av_description: "my collection of avatars i use across social media. click on each one to see the source."
+
   -- roleplay
   rp_index:       "roleplay."
   rp_title:       "dael's roleplay."
@@ -44,7 +49,6 @@ en:
   rp_resources:   "resources."
   --
   ["rp_universe_rolverso"]: "rol;verse"
-  ["rp_universe_rolversa"]: "rol;versa"
   --
   ["rp_section_dael"]: "Dael Vnaja"
   --

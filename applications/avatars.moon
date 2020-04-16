@@ -1,7 +1,7 @@
-lapis   = require "lapis"
-iiin    = require "i18n"
+lapis = require "lapis"
+iiin  = require "i18n"
 
-class Portfolio extends lapis.Application
+class Avatars extends lapis.Application
   -- layout
   layout: require "views.layout"
   -- before
@@ -12,15 +12,15 @@ class Portfolio extends lapis.Application
     @session.locale = @params.lang or @session.locale or "en"
     iiin.loadFile "i18n/#{@session.locale}.lua"
     iiin.setLocale @session.locale
-    -- check access
+    -- check permissions
     @session.access or= "key:basic"
-    checkAccess = require "util.access"
-    levels      = require "static.lists.access"
-    unless checkAccess "portfolio", levels[@session.access]
+    checkAccess       = require "util.access"
+    levels            = require "static.lists.access"
+    unless checkAccess "avatars", levels[@session.access]
       return @write redirect_to: "/login?redirect=#{@req.parsed_url.path}"
   --# routes #--
-  "/portfolio": =>
-    @title       = iiin "pf_title"
-    @description = iiin "pf_description"
+  "/avatars": =>
+    @title       = iiin "av_title"
+    @description = iiin "av_description"
     @footer      = iiin "footer"
-    render: "portfolio"
+    render: "avatars"

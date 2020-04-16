@@ -26,4 +26,5 @@ class RoleplayUniverse extends Widget
                 if i != #links
                   span " · "
     -- content
-    div id: "content", -> raw @content
+    div id: "content", -> raw @icontent
+    

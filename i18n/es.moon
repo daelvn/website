@@ -3,26 +3,68 @@ es:
   intro: "bienvenidxs a mi blog. aquí es donde echo todas las cosas que se me pasan por la cabeza."
   footer: "el tema es <a href='https://github.com/heisenburger/typora-theme-refine'>Refine</a> hecho por @heisenburger.<br>contenido hecho por dael (a no ser que diga lo contrario)."
   footer: [[
+    <a href="/login">iniciar sesión.</a><span> · </span><a href="logout/">cerrar sesión.</a><br>
     el tema es <a href='https://github.com/heisenburger/typora-theme-refine'>refine</a> por @heisenburger.<br>
     hecho por @daelvn.<br>
     funciona con <a href='https://leafo.net/lapis'>lapis</a> por @leafo.<br>
     generosamente hosteado por <a href='https://ahti.space'>ahti.space</a>.
   ]]
-    -- discord
+
+  -- discord
   disc_h1: "buenas,"
   disc_h2: "saludos, viajero, por favor toma mi discord."
+
+  -- login page
+  login: "iniciar sesión."
+
+  -- 404 page
+  ["404_title"]:       "lo que hemos perdido."
+  ["404_description"]: "404. no hemos podido encontrar lo que estabas buscando."
+  ["404_h1"]:          "lo perdido."
+  ["404_p"]:           "la página que buscas no existe. ¿seguro que tienes la URL correcta?"
+
   -- sections
-  links:       "enlaces"
-  sen_poetry:  "poesía"
-  sed_poetry:  "toda la poesía que he escrito."
-  sen_blog:    "blog"
-  sed_blog:    "todos mis pensamientos incoherentes juntos."
-  sen_gallery: "galería"
-  sed_gallery: "mi pequeña colección de autoretratos."
+  links:         "enlaces"
+  sen_poetry:    "poesía"
+  sed_poetry:    "toda la poesía que he escrito."
+  sen_blog:      "blog"
+  sed_blog:      "todos mis pensamientos incoherentes juntos."
+  sen_gallery:   "galería"
+  sed_gallery:   "mi pequeña colección de autoretratos."
+  sen_roleplay:  "roleplay"
+  sed_roleplay:  "todos mis recursos para juegos de rol."
+  sen_avatars:   "avatares"
+  sed_avatars:   "mi larga lista de avatares que utilizo y sus fuentes."
+
+  -- avatars
+  av_index:       "avatares."
+  av_title:       "mis avatares."
+  av_description: "mi colección of avatares que uso en RRSS. haz clic a cada uno para ver la fuente."
+
+  -- roleplay
+  rp_index:       "roleplay."
+  rp_title:       "mi roleplay."
+  rp_description: "mi colección de recursos que utilizo para juegos de rol."
+  rp_section:     "sección."
+  rp_resources:   "recursos."
+  --
+  ["rp_universe_rolverso"]: "rol;verso"
+  --
+  ["rp_section_dael"]: "Dael Vnaja"
+  --
+  ["rp_link_bio"]:      "bio"
+  ["rp_link_map"]:      "mapa"
+  ["rp_link_images"]:   "imagenes"
+  ["rp_link_universe"]: "universo"
+  --
+  ["rp_chart_dael"]: "Dael Vnaja"
+  ["rp_chard_dael"]: "mi OC self-insert descarado."
+
   -- gallery
   g_index:       "galería."
   g_title:       "mi galería."
   g_description: "mi pequeña colección de autoretratos. cosas que son yo, me representan, o con las que conecto."
+  
   -- blog
   b_index:       "blog."
   b_title:       "mi blog."
@@ -33,6 +75,7 @@ es:
   ["be_06_humanity"]:       "humanidad."
   ["be_08_go-back"]:        "volver."
   ["be_08_accessible-art"]: "arte accesible."
+  
   -- poetry
   p_index:       "poesía."
   p_title:       "mi poesía."

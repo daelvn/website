@@ -1,14 +1,14 @@
 {
   ["key:basic"]: {
     "poetry"
-    "portfolio"
     "blog"
+    --"avatars"
   }
   ["key:roleplay"]: {
     "poetry"
-    "portfolio"
     "blog"
     "roleplay"
+    "avatars"
   }
   ["key:none"]: {   }
   ["key:all"]:  {"*"}

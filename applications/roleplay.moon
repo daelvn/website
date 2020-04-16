@@ -44,7 +44,7 @@ class Roleplay extends lapis.Application
     @description = iiin "rp_chard_#{@params.char}"
     @footer      = iiin "footer"
     @universe    = @params.universe
-    @content     = readfile "page/rp/#{@params.universe}.html"
+    @icontent    = readfile "page/rp/#{@params.universe}.html"
     render: "roleplay.universe"
   -- /rp/:universe/:section
   "/rp/:universe/:section": =>

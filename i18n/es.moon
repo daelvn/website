@@ -112,6 +112,7 @@ es:
   ["pf_odes_brahms"]:               "a la nana de brahms"
   ["pf_odes_forest"]:               "al bosque"
   ["pf_odes_temple"]:               "al templo"
+  ["pf_odes_maria"]:                "a María"
   ["pf_heartbreak_remedy"]:         "remedio para un corazón roto"
   ["pf_heartbreak_time"]:           "el tiempo no cura, pero estar solo sí"
   ["pf_heartbreak_win"]:            "tu ganas"

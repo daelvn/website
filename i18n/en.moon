@@ -142,3 +142,4 @@ en:
   ["pf_angelic_alone"]:             "alone"
   ["pf_other_create"]:              "CREATE"
   ["pf_other_back"]:                "go back"
+  ["pf_other_louder"]:              "LOUDER"

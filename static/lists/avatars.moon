@@ -1,4 +1,4 @@
-return {
+{
   ["yu-avi3.png"]                              = "popup: Yuu (Seraph Of The End)",
   ["me-16521.png"]                             = "https://picrew.me/image_maker/16521",
   ["me-flowercrown.png"]                       = "https://picrew.me/",

@@ -70,5 +70,6 @@
   other: {
     "create.html"
     "back.html"
+    "louder.html"
   }
 }

@@ -142,3 +142,4 @@ es:
   ["pf_angelic_alone"]:             "solo"
   ["pf_other_create"]:              "CREARÉ"
   ["pf_other_back"]:                "volver"
+  ["pf_other_louder"]:              "MÁS ALTO"

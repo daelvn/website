@@ -6,6 +6,7 @@ document = window.document
 
 -- get button
 btn = document\getElementById "scrollback"
+return unless btn
 
 -- add scroll trigger
 window.onscroll = ->

@@ -1,73 +1,35 @@
 tasks:
-  -- compiles moonscript files
-  compile: ->
-    for file in wildcard "**.moon"
-      continue if file\match "Alfons"
-      moonc file
-  -- runs the server
-  run: ->
-    sh "lapis server development"
+  -- newcompile
+  compile: (...) =>
+    flags = toflags ...
+    if flags.noskip
+      for file in wildcard "**.moon"
+        continue if file\match "Alfons"
+        moonc file
+    else
+      build (wildcard "**.moon"), (file) ->
+        return if file\match "Alfons"
+        moonc file
+  --
+  run:   -> sh "lapis server development" -- runs the server
+  setup: -> sh "moon util/db/setup.moon"  -- setup database
   -- installs dependencies
-  install_deps: ->
-    deps = {
-      "lapis"
-      "i18n"
-      "filekit"
-      "inspect"
-      "htmlparser"
+  install_deps: (get "install_deps") {
+      "lapis", "i18n", "filekit", "inspect"
+      "htmlparser", "moonscript", "grasp"
+      "argon2", "openssl"
     }
-    for dep in *deps
-      print "==> installing dependency: #{dep}"
-      sh "luarocks install #{dep}"
-  -- installs dependencies
-  install_deps: (bin="luarocks") =>
-    deps = {
-      "lapis"
-      "i18n"
-      "filekit"
-      "inspect"
-      "htmlparser"
-      "moonscript"
-    }
-    for dep in *deps
-      print "==> installing dependency: #{dep}"
-      sh "#{bin} install #{dep}"
   -- cleans useless files
   clean: ->
     for file in wildcard "**.lua"
       continue if file\match "lists/avatars"
+      continue if file\match "hashes.lua"
+      continue if file\match "alfons"
       fs.delete file
     for dir in wildcard "*_temp"
       fs.delete dir
-  -- generate avatar files
-  genavatars: ->
-    sh "mv static/lists/avatars.lua static/lists/avatars.old.lua"
-    sh "moon util/genavatars.moon > static/lists/avatars.lua"
-  -- unstyles poems in page/poetryrx/
-  unstyle: ->
-    inspect = require "inspect"
-    html    = require "htmlparser"
-    displayed = false
-    for file in wildcard "poetryrx/**.html"
-      -- read DOM
-      local root
-      with fs.safeOpen file, "r"
-        if .error
-          print "could not read file #{file}"
-          continue
-        content = \read "*a"
-        root    = html.parse content
-        \close!
-      -- get contents of div#write
-      continue unless root.nodes[1]
-      continue if     root.nodes[1].name != "html"
-      --     root.html    .body    .div#write
-      print file
-      body = root.nodes[1].nodes[2].nodes[1]\getcontent!
-      -- write back into file
-      with fs.safeOpen file, "w"
-        if .error
-          print "could not write file #{file}"
-          continue
-        \write body
-        \close!
+    fs.delete "daelx.db"
+  --
+  genavatars: get "genavatars" -- generate avatar files
+  unstyle:    get "unstyle"    -- unstyles poems in page/poetryrx/
+  

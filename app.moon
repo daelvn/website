@@ -44,3 +44,6 @@ class Homepage extends lapis.Application
   -- /empty
   "/empty": =>
     layout: false, " "
+  -- /crawlspace
+  "/crawlspace": =>
+    render: "crawlspace"

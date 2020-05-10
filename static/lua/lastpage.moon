@@ -14,6 +14,7 @@ Icon = (ind) ->
 
 -- get button container
 container = document\getElementById "lastpage-container"
+return unless container
 
 -- get pathname
 thisURL    = new window.URL, document.location

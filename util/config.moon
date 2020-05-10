@@ -1,0 +1,1 @@
+return config: (require "lapis.config").get!

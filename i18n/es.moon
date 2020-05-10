@@ -4,6 +4,7 @@ es:
   footer: "el tema es <a href='https://github.com/heisenburger/typora-theme-refine'>Refine</a> hecho por @heisenburger.<br>contenido hecho por dael (a no ser que diga lo contrario)."
   footer: [[
     <a href="/login">iniciar sesión.</a><span> · </span><a href="logout/">cerrar sesión.</a><br>
+    <a href="/admin/upload">subir.</a><span> · </span><a href="/admin/manage">editar.</a><br>
     el tema es <a href='https://github.com/heisenburger/typora-theme-refine'>refine</a> por @heisenburger.<br>
     hecho por @daelvn.<br>
     funciona con <a href='https://leafo.net/lapis'>lapis</a> por @leafo.<br>

@@ -8,12 +8,16 @@ readfile = (file) ->
     \close!
   return contents
 
-config "development", ->
+config {"development", "production"}, ->
+  secret       readfile "secrets/secret.txt"
+  session_name "daelx_session"
   port 6563
 
+  daelvn ->
+    db ->
+      backend  "grasp"
+      location "daelx.db"
+
 config "production", ->
-  session_name "daelfell_session"
-  secret       readfile "secrets/secret.txt"
-  port         6563
   num_workers  4
   code_cache   "on"

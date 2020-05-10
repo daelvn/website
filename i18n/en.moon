@@ -3,7 +3,8 @@ en:
   index:  "dael."
   intro:  "welcome to my blog. this is where i dump all things that go through my head."
   footer: [[
-    <a href="/login">login.</a><span> · </span><a href="logout/">logout.</a><br>
+    <a href="/login">login.</a><span> · </span><a href="/logout">logout.</a><span> · </span><a href="/register">register.</a><br>
+    <a href="/admin/upload">upload.</a><span> · </span><a href="/admin/manage">manage.</a><span> · </span><a href="/whoami">who am i?</a><br>
     theme is <a href='https://github.com/heisenburger/typora-theme-refine'>refine</a> by @heisenburger.<br>
     made by @daelvn.<br>
     powered by <a href='https://leafo.net/lapis'>lapis</a> by @leafo.<br>
@@ -14,8 +15,15 @@ en:
   disc_h1: "hey there,"
   disc_h2: "hello, kind traveler, please take my discord."
 
-  -- login page
-  login: "log in."
+  -- login pages
+  login:    "log in."
+  register: "sign up."
+
+  -- errors
+  error_h1:           "uh oh!"
+  e_user_not_found:   "user was not found."
+  e_invalid_password: "invalid password."
+  e_user_exists:      "user already exists"
 
   -- 404 page
   ["404_title"]:       "what we lost."

@@ -23,9 +23,11 @@ class DefaultLayout extends html.Widget
         -- fengari
         script src: "/static/vendor/fengari-web.js", type: "text/javascript"
         -- scripts
-        script src: "https://kit.fontawesome.com/5a83bed402.js", crossorigin: "anonymous"
-        script src: "/static/lua/scroll.lua",   type: "application/lua"
-        script src: "/static/lua/lastpage.lua", type: "application/lua"
+        script src:  "https://kit.fontawesome.com/5a83bed402.js", crossorigin: "anonymous"
+        script type: "application/lua",                           -> raw [[local window=require'js'.global;window['ljs']=function(doc)return function(sel)return doc:querySelector(sel)end end]]
+        script src:  "/static/lua/scroll.lua",                    type: "application/lua"
+        script src:  "/static/lua/lastpage.lua",                  type: "application/lua"
+        script src:  "/static/lua/toast.lua",                     type: "application/lua"
       body id: "write", ->
         -- back button
         div id: "lastpage-container", ->
@@ -41,8 +43,8 @@ class DefaultLayout extends html.Widget
         @content_for "inner"
         -- scroll to top button
         button id: "scrollback", title: "Go up", -> i class: "fas fa-arrow-up"
-        -- attribution
-        --blockquote -> raw @footer
+        -- toast
+        div id: "toast", ->
         -- social media
         hr class: "footer-hr"
         footer id: "footer", ->

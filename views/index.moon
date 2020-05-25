@@ -3,6 +3,7 @@ sections         = require "static.lists.sections"
 
 class Index extends Widget
   content: =>
+    script -> raw "toast('#{@toast}');" if @toast
     h1 @iiin "index"
     blockquote -> p @iiin "intro"
     h2 @iiin "links"

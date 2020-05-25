@@ -43,7 +43,7 @@ do
       for dd, dt in npairs mt
         table.insert sorted, dt
 
-class Poetry extends Widget
+class Blog extends Widget
   content: =>
     -- title
     h1 @iiin "b_index"

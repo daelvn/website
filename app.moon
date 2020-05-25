@@ -37,9 +37,11 @@ class Homepage extends lapis.Application
   --# routes #--
   -- /
   "/": =>
-    @title       = "dael."
-    @description = iiin "intro"
-    @footer      = iiin "footer"
+    @title         = "dael."
+    @description   = iiin "intro"
+    @footer        = iiin "footer"
+    @toast         = @session.toast if @session.toast
+    @session.toast = nil
     render: "index"
   -- /empty
   "/empty": =>
@@ -47,3 +49,8 @@ class Homepage extends lapis.Application
   -- /crawlspace
   "/crawlspace": =>
     render: "crawlspace"
+  -- /tokens
+  "/tokens": =>
+    @html ->
+      h1 @iiin "tokens_title"
+      p  -> raw @iiin "tokens_description"

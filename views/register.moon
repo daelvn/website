@@ -7,6 +7,9 @@ class Register extends Widget
       h1 @iiin "register"
       form action: "", method: "post", ->
         input type: "hidden",   name: "csrf_token", value: @csrf_token
-        input type: "text",     name: "username",   placeholder: "Username"
-        input type: "password", name: "password",   placeholder: "Password"
+        input type: "text",     name: "username",   placeholder: @iiin "username"
+        input type: "password", name: "password",   placeholder: @iiin "password"
+        input type: "text",     name: "regtoken",   placeholder: @iiin "regtoken"
         input type: "submit",   name: "submit",     value: ">"
+      br!
+      a href: "/tokens", @iiin "login_about_token"

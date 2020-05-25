@@ -29,7 +29,6 @@ Grasp.init = ->
 --   username    :: string
 --   password    :: string
 --   admin       :: boolean
---   forcechange :: boolean
 --   created_at  :: ?
 -- }
 -- User : update - updates the user with the new data
@@ -43,7 +42,6 @@ Grasp.User = (username) ->
   return false, "User not found" unless this
   --
   this.admin       = unbool this.admin
-  this.forcechange = unbool this.forcechange
   return typeset this, "User"
 
 -- Updates an User
@@ -66,21 +64,31 @@ Grasp.auth = (password) =>
   return vp, vp and "Correct password" or "Invalid password"
 
 -- Creates a new user
-Grasp.new = (username, password, admin=false) ->
+Grasp.new = (username, password, scope="scope:basic", admin=false) ->
   expect 1, username, {"string"}
   expect 2, password, {"string"}
+  expect 4, scope,    {"string"}
   expect 3, admin,    {"boolean"}
   --ngx.log ngx.NOTICE, "creatin new user"
   Grasp.init! unless IS_INIT
-  forcechange = admin
   ok = update sql -> insert into "users", -> values:
     :username
+    :scope
     :admin
-    :forcechange
     password:   hashPassword password
     created_at: raw "datetime('now')"
   return lastError! unless ok
   return Grasp.User username
+
+-- Get a list of all users
+Grasp.all = ->
+  Grasp.init! unless IS_INIT
+  return squery sql -> select "*", -> From "users"
+
+-- Close db
+Grasp.close = ->
+  Grasp.init! unless IS_INIT
+  grasp.close db
 
 -- Return functions
 assert config.daelvn.db, "Database configuration not found"

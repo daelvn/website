@@ -41,16 +41,17 @@ class Access extends lapis.Application
       render: "login"
     POST: =>
       csrf.assert_token @
-      import User, auth from require "controllers.users"
+      import User, auth, close from require "controllers.users"
       user, err = User @params.username
       unless user
         @errorid = "e_user_not_found"
         render: "error"
       --
       hasAuth = auth user, @params.password
+      close!
       if hasAuth
-        log "logged in as #{@params.username}"
-        @session.user = user
+        @session.user  = user
+        @session.toast = iiin "logged", user: @params.username
         return redirect_to: @params.redirect or "/"
       else
         @errorid = "e_invalid_password"
@@ -70,16 +71,21 @@ class Access extends lapis.Application
       render: "register"
     POST: =>
       csrf.assert_token @
-      ngx.log ngx.NOTICE, "HONK"
-      import new from require "controllers.users"
-      user, err = new @params.username, @params.password, false
+      import Token from require "controllers.tokens"
+      tkn = Token @params.regtoken
+      unless tkn
+        @errorid = "e_invalid_token"
+        return render: "error"
+      import new, close from require "controllers.users"
+      user, err = new @params.username, @params.password, (tkn.scope or "scope:basic"), false
+      close!
       switch typeof user
         when "User"
-          log "created user #{@params.username}"
+          log "created user #{@params.username} with permissions #{tkn.scope}"
           return redirect_to: "/login"
         else
           @errorid = "e_user_exists"
-          render: "error"
+          return render: "error"
   }
   -- /whoami
   "/whoami": =>

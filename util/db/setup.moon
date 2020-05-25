@@ -9,9 +9,17 @@ statements = {
   sql -> create "users", -> columns:
     username:    "TEXT NOT NULL UNIQUE"
     password:    "TEXT NOT NULL"
+    scope:       "TEXT NOT NULL"
     created_at:  "DATE NOT NULL"
     admin:       "BOOLEAN NOT NULL CHECK (admin IN (0,1))"
-    forcechange: "BOOLEAN NOT NULL CHECK (forcechange IN (0,1))"
+  -- create the tokens table
+  sql -> create "tokens", -> columns:
+    token:       "TEXT NOT NULL UNIQUE"
+    scope:       "TEXT NOT NULL UNIQUE"
+  -- insert sample token
+  sql -> insert into "tokens", -> values:
+    token: "AAAAA"
+    scope: "scope:admin"
   -- Create a basic admin account
   -- Will be asked to change it immediately (forcechange)
   --"INSERT INTO users VALUES ('admin', '#{hashPassword "ddddd"}', date('now'), 1, 1)"

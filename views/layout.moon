@@ -39,12 +39,12 @@ class DefaultLayout extends html.Widget
             button class: "link", name: "lang", value: "en", "english"
             span "·"
             button class: "link", name: "lang", value: "es", "español"
+        -- toast
+        div id: "toast", ->
         -- content
         @content_for "inner"
         -- scroll to top button
         button id: "scrollback", title: "Go up", -> i class: "fas fa-arrow-up"
-        -- toast
-        div id: "toast", ->
         -- social media
         hr class: "footer-hr"
         footer id: "footer", ->

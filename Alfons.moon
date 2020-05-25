@@ -1,5 +1,12 @@
+DEPENDENCIES = {    
+  "lapis", "i18n", "filekit", "inspect"
+  "htmlparser", "moonscript", "grasp"
+  "argon2", "openssl"
+}
+
+-- Tasks --
 tasks:
-  -- newcompile
+  -- compile
   compile: (...) =>
     flags = toflags ...
     if flags.noskip
@@ -10,15 +17,6 @@ tasks:
       build (wildcard "**.moon"), (file) ->
         return if file\match "Alfons"
         moonc file
-  --
-  run:   -> sh "lapis server development" -- runs the server
-  setup: -> sh "moon util/db/setup.moon"  -- setup database
-  -- installs dependencies
-  install_deps: (get "install_deps") {
-      "lapis", "i18n", "filekit", "inspect"
-      "htmlparser", "moonscript", "grasp"
-      "argon2", "openssl"
-    }
   -- cleans useless files
   clean: ->
     for file in wildcard "**.lua"
@@ -29,7 +27,22 @@ tasks:
     for dir in wildcard "*_temp"
       fs.delete dir
     fs.delete "daelx.db"
+  -- fast run
+  run:  => tasks.fast!
+  fast: =>
+    print style "%{blue}: %{white} Running server..." 
+    tasks.compile!
+    tasks.server!
+  -- slow run
+  slow: =>
+    print style "%{blue}: %{white} Running server (slow)..."
+    tasks.clean!
+    tasks.setup!
+    tasks.compile!
+    tasks.server!
   --
-  genavatars: get "genavatars" -- generate avatar files
-  unstyle:    get "unstyle"    -- unstyles poems in page/poetryrx/
-  
+  server:     -> sh  "lapis server development"   -- runs the server
+  setup:      -> sh  "moon util/db/setup.moon"    -- setup database  
+  genavatars:    get "genavatars"                 -- generate avatar files
+  unstyle:       get "unstyle"                    -- unstyles poems in page/poetryrx/ 
+  install_deps: (get "install_deps") DEPENDENCIES -- installs dependencies

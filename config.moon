@@ -9,6 +9,7 @@ readfile = (file) ->
   return contents
 
 config {"development", "production"}, ->
+  bind_host    "0.0.0.0"
   secret       readfile "secrets/secret.txt"
   session_name "daelx_session"
   port 6563

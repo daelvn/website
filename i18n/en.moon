@@ -16,14 +16,32 @@ en:
   disc_h2: "hello, kind traveler, please take my discord."
 
   -- login pages
-  login:    "log in."
-  register: "sign up."
+  login:             "log in."
+  register:          "sign up."
+  logged:            "You are now logged in as %{user}!"
+  username:          "username."
+  password:          "password."
+  regtoken:          "register token."
+  login_about_token: "what is a register token?"
+
+  -- tokens
+  tokens_title:       "register tokens."
+  tokens_description: [[
+    To prevent spam account creation, you'll need a one-time-access token to be given by
+    an admin. It will also set certain permissions for your account and determine the
+    content you will be able to access.
+
+    If you want to create an account, contact <a href="/sn/discord">@daelvn on discord</a>.
+  ]]
+
+  -- admin pages
 
   -- errors
   error_h1:           "uh oh!"
   e_user_not_found:   "user was not found."
   e_invalid_password: "invalid password."
-  e_user_exists:      "user already exists"
+  e_user_exists:      "user already exists."
+  e_invalid_token:    "invalid token."
 
   -- 404 page
   ["404_title"]:       "what we lost."

@@ -3,3 +3,4 @@ logs
 nginx.conf.compiled
 secrets/
 static/img/avatar/
+*.db

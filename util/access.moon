@@ -1,8 +1,24 @@
-(this, level) ->
-  -- this: application we're on
-  -- level: list of applications this access key can access
-  -- (return) whether the page can be accessed or not
-  for app in *level
-    return true if app == "*"
-    return true if app == this
-  return false
+return =>
+  -- load access scopes
+  import config from require "util.config"
+  access = {"scope:"..k, v for k, v in pairs config.dxvn.access}
+  scope  = @session.user and access[@session.user.scope] or access["scope:guest"]
+  -- see our current path
+  current = @req.parsed_url.path
+  -- check that it matches
+  patterns = [fs.fromGlob v for v in *scope]
+  matched  = false
+  for pat in *patterns
+    if fs.matchGlob pat, current
+      matched = true
+      break
+  -- return
+  if matched
+    return true
+  elseif not @session.user
+    @write redirect_to: "/login?redirect=#{@req.parsed_url.path}"
+  else
+    @title       = iiin "403_title"
+    @description = iiin "403_description"
+    @footer      = iiin "footer"
+    @write render: "403"

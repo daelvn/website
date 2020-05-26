@@ -1,6 +1,5 @@
-lapis   = require "lapis"
-iiin    = require "i18n"
-fs      = require "filekit"
+import config from require "util.config"
+lapis            = require "lapis"
 
 -- reads the contents of an html file
 readfile = (file) ->
@@ -15,9 +14,9 @@ class Homepage extends lapis.Application
   -- layout
   layout: require "views.layout"
   -- include applications
-  apps = require "static.lists.applications"
-  for app in *apps
-    @include "applications.#{app}"
+  apps = config.dxvn.apps
+  for app, incl in pairs apps
+    @include "applications.#{app}" if incl
   -- before
   @before_filter =>
     -- iframe header
@@ -49,8 +48,3 @@ class Homepage extends lapis.Application
   -- /crawlspace
   "/crawlspace": =>
     render: "crawlspace"
-  -- /tokens
-  "/tokens": =>
-    @html ->
-      h1 @iiin "tokens_title"
-      p  -> raw @iiin "tokens_description"

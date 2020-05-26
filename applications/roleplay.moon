@@ -1,6 +1,5 @@
 lapis   = require "lapis"
-iiin    = require "i18n"
-fs      = require "filekit"
+
 
 charExists = (ch) -> fs.isDir "page/rp/#{ch}/"
 
@@ -26,12 +25,9 @@ class Roleplay extends lapis.Application
     @session.locale = @params.lang or @session.locale or "en"
     iiin.loadFile "i18n/#{@session.locale}.lua"
     iiin.setLocale @session.locale
-    -- check access
-    @session.access or= "key:basic"
+    -- check perms
     checkAccess = require "util.access"
-    levels      = require "static.lists.access"
-    unless checkAccess "roleplay", levels[@session.access]
-      return @write redirect_to: "/login?redirect=#{@req.parsed_url.path}"
+    checkAccess @
   --# routes #--
   -- /rp
   "/rp": =>

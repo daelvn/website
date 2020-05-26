@@ -25,8 +25,10 @@ http {
     local grasp             = require "grasp.util"
     expect, typeof, typeset = grasp.expect, grasp.typeof, grasp.typeset
 
-    log = function(txt) ngx.log(ngx.NOTICE, txt) end
+    log     = function(txt) ngx.log(ngx.NOTICE, txt) end
     inspect = require "inspect"
+    fs      = require "filekit"
+    iiin    = require "i18n"
   }
 
   server {

@@ -36,10 +36,10 @@ statements = {
 }
 
 -- open database
-assert config.daelvn.db,          "Database configuration not found"
-assert config.daelvn.db.location, "Database location not specified"
+assert config.dxvn.db,          "Database configuration not found"
+assert config.dxvn.db.location, "Database location not specified"
 import Database, update from grasp
-db  = Database config.daelvn.db.location
+db  = Database config.dxvn.db.location
 run = update db
 
 -- run statements

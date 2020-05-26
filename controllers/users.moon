@@ -36,12 +36,14 @@ Grasp.init = ->
 Grasp.User = (username) ->
   expect 1, username, {"string"}
   Grasp.init! unless IS_INIT
-  this = first squery sql -> select "*", ->
+  this = squery sql -> select "*", ->
     From "users"
     where :username
-  return false, "User not found" unless this
+  log "this: #{this}, #{typeof this}"
+  return false, "User not found" unless "table" == typeof this
   --
-  this.admin       = unbool this.admin
+  this       = first this
+  this.admin = unbool this.admin
   return typeset this, "User"
 
 -- Updates an User
@@ -91,5 +93,5 @@ Grasp.close = ->
   grasp.close db
 
 -- Return functions
-assert config.daelvn.db, "Database configuration not found"
-return BACKENDS[config.daelvn.db.backend or "grasp"]
+assert config.dxvn.db, "Database configuration not found"
+return BACKENDS[config.dxvn.db.backend or "grasp"]

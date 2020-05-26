@@ -3,10 +3,11 @@
 js       = require "js"
 window   = js.global
 document = window.document
+_        = window.ljs window.document
 
 -- get button
-btn = document\getElementById "scrollback"
-return unless btn
+btn = _"#scrollback"
+return if btn == js.null
 
 -- add scroll trigger
 window.onscroll = ->

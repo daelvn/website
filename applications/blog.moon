@@ -1,6 +1,4 @@
 lapis = require "lapis"
-iiin  = require "i18n"
-fs    = require "filekit"
 
 -- renders a number as two digits
 twodigit = (n) -> return string.format "%02d", tonumber n
@@ -27,12 +25,9 @@ class Blog extends lapis.Application
     @session.locale = @params.lang or @session.locale or "en"
     iiin.loadFile "i18n/#{@session.locale}.lua"
     iiin.setLocale @session.locale
-    -- check permissions
-    @session.access or= "key:basic"
+    -- check perms
     checkAccess = require "util.access"
-    levels      = require "static.lists.access"
-    unless checkAccess "blog", levels[@session.access]
-      return @write redirect_to: "/login?redirect=#{@req.parsed_url.path}"
+    checkAccess @
   --# routes #--
   "/blog": =>
     @title       = iiin "b_title"

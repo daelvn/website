@@ -1,5 +1,5 @@
 lapis = require "lapis"
-iiin  = require "i18n"
+
 
 class Social extends lapis.Application
   -- layout

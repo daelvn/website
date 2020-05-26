@@ -4,6 +4,7 @@ js       = require "js"
 new      = js.new
 window   = js.global
 document = window.document
+_        = window.ljs window.document
 
 -- quick create icon
 Icon = (ind) ->
@@ -13,8 +14,8 @@ Icon = (ind) ->
   return icon
 
 -- get button container
-container = document\getElementById "lastpage-container"
-return unless container
+container = _"#lastpage-container"
+return if container == js.null
 
 -- get pathname
 thisURL    = new window.URL, document.location

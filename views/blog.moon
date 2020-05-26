@@ -1,5 +1,4 @@
 import Widget from require "lapis.html"
-fs               = require "filekit"
 inspect          = require "inspect"
 
 -- removes html suffix

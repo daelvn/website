@@ -1,8 +1,7 @@
 import respond_to from require "lapis.application"
+import config     from require "util.config"
 lapis                = require "lapis"
 csrf                 = require "lapis.csrf"
-iiin                 = require "i18n"
-fs                   = require "filekit"
 
 -- passwords
 passwords = require "secrets.passwords"
@@ -38,14 +37,14 @@ class Access extends lapis.Application
       --
       @title  = iiin "login"
       @footer = iiin "footer"
-      render: "login"
+      return render: "login"
     POST: =>
       csrf.assert_token @
       import User, auth, close from require "controllers.users"
       user, err = User @params.username
       unless user
         @errorid = "e_user_not_found"
-        render: "error"
+        return render: "error"
       --
       hasAuth = auth user, @params.password
       close!
@@ -55,7 +54,7 @@ class Access extends lapis.Application
         return redirect_to: @params.redirect or "/"
       else
         @errorid = "e_invalid_password"
-        render: "error"
+        return render: "error"
   }
   -- /logout
   "/logout": =>
@@ -71,17 +70,20 @@ class Access extends lapis.Application
       render: "register"
     POST: =>
       csrf.assert_token @
-      import Token from require "controllers.tokens"
+      -- validate register token
+      import Token, delete from require "controllers.tokens"
       tkn = Token @params.regtoken
       unless tkn
         @errorid = "e_invalid_token"
         return render: "error"
+      -- create user
       import new, close from require "controllers.users"
-      user, err = new @params.username, @params.password, (tkn.scope or "scope:basic"), false
-      close!
+      user, err = new @params.username, @params.password, (tkn.scope or config.dxvn.scopes.default), (tkn.scope == config.dxvn.scopes.admin)
+      -- validate user
       switch typeof user
         when "User"
-          log "created user #{@params.username} with permissions #{tkn.scope}"
+          delete tkn.token
+          close!
           return redirect_to: "/login"
         else
           @errorid = "e_user_exists"
@@ -90,6 +92,13 @@ class Access extends lapis.Application
   -- /whoami
   "/whoami": =>
     if @session.user
-      return @html -> h1 @session.user.username
+      return @html ->
+        h1 @session.user.username
+        p "#{@session.user.scope}\n#{@session.user.created_at}\n#{@session.user.admin}"
     else
       return @html -> h1 "?"
+  -- /tokens
+  "/tokens": =>
+    @html ->
+      h1 @iiin "tokens_title"
+      p  -> raw @iiin "tokens_description"

@@ -3,4 +3,5 @@ logs
 nginx.conf.compiled
 secrets/
 static/img/avatar/
+static/vendor/simplemde/
 *.db

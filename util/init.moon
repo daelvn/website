@@ -5,7 +5,6 @@ tobool = (str) -> "true" and true or false
 first  = (t) ->
   expect 1, t, {"table"}
   t[1] or false
-
 {
   :quote, :bool, :unbool, :first, :tobool
 }

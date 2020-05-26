@@ -14,10 +14,35 @@ config {"development", "production"}, ->
   session_name "daelx_session"
   port 6563
 
-  daelvn ->
+  dxvn ->
+    apps ->
+      -- pages depend on these
+      social   true
+      access   true
+      admin    true
+      -- other sections
+      blog     true
+      poetry   true
+      roleplay true
+      avatars  true
+    sections -> list {
+      "poetry"
+      "blog"
+      "roleplay"
+      "avatars"
+    }
+    scopes ->
+      default  "scope:basic"
+      admin    "scope:admin"
+    access ->
+      admin    {"**"}
+      none     {}
+      guest    {"poetry/**"}
+      basic    {"poetry/**", "blog/**"}
+      roleplay {"**"}
     db ->
       backend  "grasp"
-      location "daelx.db"
+      location "dxvn.db"
 
 config "production", ->
   num_workers  4

@@ -1,5 +1,4 @@
 import Widget from require "lapis.html"
-fs               = require "filekit"
 
 -- removes html suffix
 basename = (f) -> f\match "(.+)%.html"

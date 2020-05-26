@@ -1,5 +1,4 @@
 import Widget from require "lapis.html"
-fs               = require "filekit"
 
 -- count
 getn = (t) ->

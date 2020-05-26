@@ -1,5 +1,4 @@
 import Widget from require "lapis.html"
-fs               = require "filekit"
 
 list = require "static.lists.roleplay"
 

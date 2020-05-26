@@ -1,5 +1,6 @@
 import Widget from require "lapis.html"
-sections         = require "static.lists.sections"
+import config from require "util.config"
+sections = config.dxvn.sections.list
 
 class Index extends Widget
   content: =>

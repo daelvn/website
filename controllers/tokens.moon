@@ -62,6 +62,16 @@ Grasp.new = (scope="scope:basic") ->
   return lastError! unless ok
   return (Grasp.Token tkn), tkn
 
+-- deletes an used token
+Grasp.delete = (tkn) ->
+  expect 1, tkn, {"string"}
+  Grasp.init! unless IS_INIT
+  ok = update sql -> delete ->
+    From "tokens"
+    where token: tkn
+  return lastError! unless ok
+  return true
+
 -- Return functions
-assert config.daelvn.db, "Database configuration not found"
-return BACKENDS[config.daelvn.db.backend or "grasp"]
+assert config.dxvn.db, "Database configuration not found"
+return BACKENDS[config.dxvn.db.backend or "grasp"]

@@ -1,8 +1,9 @@
-lapis = require "lapis"
-iiin  = require "i18n"
-fs    = require "filekit"
+import respond_to from require "lapis.application"
+lapis                = require "lapis"
+csrf                 = require "lapis.csrf"
+discount             = require "discount"
 
-class Admn extends lapis.Application
+class Admin extends lapis.Application
   -- layout
   layout: require "views.layout"
   -- before
@@ -15,16 +16,31 @@ class Admn extends lapis.Application
     @session.locale = @params.lang or @session.locale or "en"
     iiin.loadFile "i18n/#{@session.locale}.lua"
     iiin.setLocale @session.locale
-    -- check permissions
-    @write redirect_to: "/login?redirect=#{@req.parsed_url.path}" unless @session.user and @session.user.admin
-    -- @session.access or= "key:basic"
-    -- checkAccess = require "util.access"
-    -- levels      = require "static.lists.access"
-    -- unless checkAccess "blog", levels[@session.access]
-    --   return @write redirect_to: "/login?redirect=#{@req.parsed_url.path}"
+    -- check perms
+    checkAccess = require "util.access"
+    checkAccess @
   --# routes #--
+  -- /admin/newtoken
   "/admin/newtoken": =>
     import new, close from require "controllers.tokens"
-    token = new @params.scope or "basic"
+    token = new @params.scope or "scope:basic"
     close!
-    @html -> h1 token
+    @html ->
+      h1 token.token
+      p  token.scope
+  -- /admin/upload/blog
+  "/admin/upload/blog": respond_to {
+    GET: =>
+      @csrf_token = csrf.generate_token @
+      --
+      @title       = iiin "admin_upload_blog"
+      @description = "blog."
+      @footer      = iiin "footer"
+      render: "admin.upload.blog"
+    POST: =>
+      csrf.assert_token @
+      --
+      @html ->
+        h1 @params.title
+        raw (discount.compile @params.entry).body
+  }

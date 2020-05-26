@@ -1,5 +1,5 @@
 lapis = require "lapis"
-iiin  = require "i18n"
+
 
 class Avatars extends lapis.Application
   -- layout
@@ -14,12 +14,9 @@ class Avatars extends lapis.Application
     @session.locale = @params.lang or @session.locale or "en"
     iiin.loadFile "i18n/#{@session.locale}.lua"
     iiin.setLocale @session.locale
-    -- check permissions
-    @session.access or= "key:basic"
-    checkAccess       = require "util.access"
-    levels            = require "static.lists.access"
-    unless checkAccess "avatars", levels[@session.access]
-      return @write redirect_to: "/login?redirect=#{@req.parsed_url.path}"
+    -- check perms
+    checkAccess = require "util.access"
+    checkAccess @
   --# routes #--
   "/avatars": =>
     @title       = iiin "av_title"

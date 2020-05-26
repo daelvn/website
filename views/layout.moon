@@ -1,5 +1,4 @@
 html = require "lapis.html"
-iiin = require "i18n"
 
 class DefaultLayout extends html.Widget
   content: =>
@@ -25,8 +24,7 @@ class DefaultLayout extends html.Widget
         -- scripts
         script src:  "https://kit.fontawesome.com/5a83bed402.js", crossorigin: "anonymous"
         script type: "application/lua",                           -> raw [[local window=require'js'.global;window['ljs']=function(doc)return function(sel)return doc:querySelector(sel)end end]]
-        script src:  "/static/lua/scroll.lua",                    type: "application/lua"
-        script src:  "/static/lua/lastpage.lua",                  type: "application/lua"
+        
         script src:  "/static/lua/toast.lua",                     type: "application/lua"
       body id: "write", ->
         -- back button
@@ -58,3 +56,6 @@ class DefaultLayout extends html.Widget
             br!
             --span style: "font-size: 11px;", -> raw "made by dael. powered by <a href='https://leafo.net/lapis'>lapis</a> by @leafo. kindly hosted by <a href='https://ahti.space'>ahti.space</a>."
             span style: "font-size: 11px;", -> raw @iiin "footer"
+        -- scripts
+        script src:  "/static/lua/scroll.lua",   type: "application/lua"
+        script src:  "/static/lua/lastpage.lua", type: "application/lua"

@@ -3,6 +3,7 @@ en:
   index:  "dael."
   intro:  "welcome to my blog. this is where i dump all things that go through my head."
   footer: [[
+    <a href="/">home</a><br>
     <a href="/login">login.</a><span> · </span><a href="/logout">logout.</a><span> · </span><a href="/register">register.</a><br>
     <a href="/admin/upload">upload.</a><span> · </span><a href="/admin/manage">manage.</a><span> · </span><a href="/whoami">who am i?</a><br>
     theme is <a href='https://github.com/heisenburger/typora-theme-refine'>refine</a> by @heisenburger.<br>
@@ -35,6 +36,7 @@ en:
   ]]
 
   -- admin pages
+  admin_upload_blog: "new blog entry."
 
   -- errors
   error_h1:           "uh oh!"
@@ -49,6 +51,12 @@ en:
   ["404_h1"]:          "the lost."
   ["404_p"]:           "the page you're looking for does not exist. are you sure you got the right URL?"
   
+  -- 403 page
+  ["403_title"]:       "what we locked."
+  ["403_description"]: "403. you don't have access to this page."
+  ["403_h1"]:          "the locked."
+  ["403_p"]:           "you can't access this page. are you logged in as the right user?"
+
   -- sections
   links:         "links"
   sen_poetry:    "poetry"

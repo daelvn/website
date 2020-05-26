@@ -26,13 +26,13 @@ newUID = ->
 
 --# Grasp backend #--
 local IS_INIT
-local squery, update, lastError
+local squery, update_, lastError
 
 Grasp.init = ->
-  squery    = grasp.squery db
-  update    = grasp.update db
-  lastError = grasp.errorFor db
-  IS_INIT   = true
+  squery     = grasp.squery db
+  update_    = grasp.update db
+  lastError  = grasp.errorFor db
+  IS_INIT    = true
 
 -- Close db
 Grasp.close = ->
@@ -58,18 +58,22 @@ Grasp.Entry = (uid, tcontent) ->
   return typeset this, "Entry"
 
 -- Creates a new blog entry
-Grasp.new = (name, tcontent) ->
+Grasp.new = (name, tcontent, ttitles) ->
   expect 1, name,     {"string"}
   expect 2, tcontent, {"table"}
   Grasp.init! unless IS_INIT
   uid      = newUID!
   filename = "#{os.date "%d.%m.%Y-#{uid}"}.html"
-  --
-  ok = update sql -> insert into "blog", -> values:
+  -- add titles
+  update_values = values:
     :uid
     :name
     :filename
-    created_at: raw "datetime('now')"
+    created_at: raw: "datetime('now')"
+  for lang, title in pairs ttitles
+    update_values.values["title_#{lang}"] = title
+  -- update
+  ok = update_ sql -> insert into "blog", -> update_values
   return lastError! unless ok
   -- write contents
   unless fs.exists config.dxvn.paths.blog
@@ -80,6 +84,46 @@ Grasp.new = (name, tcontent) ->
     writefile "#{config.dxvn.paths.blog}/#{lang}/#{filename}", content
   -- return
   return Grasp.Entry uid
+
+-- Edits a blog entry's titles
+Grasp.update = (uid, ttitles) ->
+  expect 1, uid,     {"string"}
+  expect 2, ttitles, {"table"}
+  log inspect ttitles
+  Grasp.init! unless IS_INIT
+  ok = update_ sql -> update "blog", ->
+    where :uid
+    values: ttitles
+  return lastError! unless ok
+  return true
+
+-- Edits a blog's content
+Grasp.edit = (uid, tcontent) ->
+  expect 1, uid,      {"string"}
+  expect 2, tcontent, {"table"}
+  Grasp.init! unless IS_INIT
+  entry = Grasp.Entry uid
+  -- write contents
+  unless fs.exists config.dxvn.paths.blog
+    fs.makeDir config.dxvn.paths.blog
+  for lang, content in pairs tcontent
+    unless fs.exists fs.combine config.dxvn.paths.blog, lang
+      fs.makeDir fs.combine config.dxvn.paths.blog, lang 
+    writefile "#{config.dxvn.paths.blog}/#{lang}/#{entry.filename}", content
+
+-- Deletes a blog entry
+Grasp.delete = (uid) ->
+  expect 1, uid, {"string"}
+  Grasp.init! unless IS_INIT
+  entry = Grasp.Entry uid
+  for lang in *config.dxvn.languages
+    fs.remove "#{config.dxvn.paths.blog}/#{lang}/#{entry.filename}"
+  --
+  ok = update_ sql -> delete ->
+    From "blog"
+    where :uid
+  return lastError! unless ok
+  return true
 
 -- Get a list of all entries
 Grasp.all = ->

@@ -137,6 +137,10 @@ input:focus {
   outline: none;
 }
 
+#upload form input {
+  width: 100%
+}
+
 /* gallery */
 .gallery-row {
   display: flex;

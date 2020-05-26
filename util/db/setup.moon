@@ -4,6 +4,22 @@ import config from require "util.config"
 import sql    from require "grasp.query"
 grasp            = require "grasp"
 
+blog_table_columns = columns:
+  uid:        "TEXT NOT NULL UNIQUE"
+  name:       "TEXT NOT NULL"
+  created_at: "DATE NOT NULL"
+  filename:   "TEXT NOT NULL"
+for lang in *config.dxvn.languages
+  blog_table_columns.columns["title_#{lang}"] = "TEXT"
+
+poetry_table_columns = columns:
+  uid:        "TEXT NOT NULL UNIQUE"
+  category:   "TEXT NOT NULL"
+  order:      "INTEGER NOT NULL"
+  name:       "TEXT NOT NULL"
+  created_at: "DATE NOT NULL"
+  filename:   "TEXT NOT NULL" 
+
 statements = {
   --- USERS ---
   -- Create the users table
@@ -26,11 +42,11 @@ statements = {
   
   --- BLOG ---
   -- create the blog table
-  sql -> create "blog", -> columns:
-    uid:        "TEXT NOT NULL UNIQUE"
-    name:       "TEXT NOT NULL"
-    created_at: "DATE NOT NULL"
-    filename:   "TEXT NOT NULL"
+  sql -> create "blog", -> blog_table_columns
+
+  --- POETRY ---
+  -- create the poetry table
+  sql -> create "poetry", -> poetry_table_columns
 }
 
 -- open database

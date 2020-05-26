@@ -1,4 +1,6 @@
 import Entry, close from require "controllers.blog"
+import config       from require "util.config"
+import readfile     from require "util"
 lapis                  = require "lapis"
 
 class Blog extends lapis.Application
@@ -29,3 +31,8 @@ class Blog extends lapis.Application
     @description = iiin "b_description"
     close!
     return entry.content[@session.locale]
+  "/blog/raw/:locale/:uid": =>
+    entry = Entry @params.uid
+    return status: 404 unless entry
+    close!
+    return layout: false, content_type: "text/plain", readfile "#{config.dxvn.paths.blog}/#{@params.locale}/#{entry.filename}.md" 

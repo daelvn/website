@@ -18,5 +18,4 @@ class Blog extends Widget
         for entry in *all!
           tr ->
             td class: "table-col1", -> span entry.created_at
-            td class: "table-col2", -> a href: "/blog/#{entry.uid}", entry.name
-          
+            td class: "table-col2", -> a href: "/blog/#{entry.uid}", entry["title_#{@session.locale}"]

@@ -25,7 +25,7 @@ config {"development", "production"}, ->
       poetry   true
       roleplay true
       avatars  true
-    sections -> list {
+    sections {
       "poetry"
       "blog"
       "roleplay"
@@ -37,12 +37,13 @@ config {"development", "production"}, ->
     access ->
       admin    {"**"}
       none     {}
-      guest    {"poetry/**"}
+      guest    {"**"}
       basic    {"poetry/**", "blog/**"}
       roleplay {"**"}
     paths ->
-      blog "page/blog2/"
+      blog "page/blog/"
     languages {
+      -- note: static/lua/simplemde.moon cannot load this file, so its languages must be changed manually
       "en", "es"
     }
     db ->

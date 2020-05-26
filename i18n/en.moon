@@ -43,10 +43,28 @@ en:
   ]]
 
   -- admin pages
+  admin_upload:                     "upload new content."
   admin_upload_blog:                "new blog entry."
   admin_upload_blog_entry_name:     "entry name."
+  admin_upload_blog_entry_name:     "entry title."
   admin_upload_blog_entry_content:  "entry content."
   admin_upload_blog_entry_codename: "entry codename."
+  admin_manage:                     "manage content."
+  admin_manage_blog:                "manage blog entries."
+  admin_manage_blog_name:           "entry name."
+  admin_manage_blog_actions:        "actions."
+  admin_manage_blog_title_en:       "english title."
+  admin_manage_blog_title_es:       "spanish title."
+  admin_manage_blog_delete:         "delete."
+  admin_manage_blog_edit:           "edit."
+  admin_manage_blog_change:         "change."
+  admin_manage_blog_view:           "view."
+
+  -- sections
+  section_blog:     "blog"
+  section_poetry:   "poetry"
+  section_roleplay: "roleplay"
+  section_avatars:  "avatars"
 
   -- errors
   error_h1:           "uh oh!"

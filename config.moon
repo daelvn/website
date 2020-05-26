@@ -22,7 +22,6 @@ config {"development", "production"}, ->
       admin    true
       -- other sections
       blog     true
-      blogalt  true
       poetry   true
       roleplay true
       avatars  true

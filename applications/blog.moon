@@ -1,16 +1,5 @@
-lapis = require "lapis"
-
--- renders a number as two digits
-twodigit = (n) -> return string.format "%02d", tonumber n
-
--- reads the contents of an html file
-readfile = (file) ->
-  --ngx.log ngx.NOTICE, "opening #{file.html} to display"
-  local contents
-  with io.open "#{file}", "r"
-    contents = \read "*a"
-    \close!
-  return contents
+import Entry, close from require "controllers.blog"
+lapis                  = require "lapis"
 
 class Blog extends lapis.Application
   -- layout
@@ -33,12 +22,10 @@ class Blog extends lapis.Application
     @title       = iiin "b_title"
     @description = iiin "b_description"
     render: "blog"
-  "/blog/:yyyy/:mm/:name": =>
-    file         = (fs.glob "page/blog/#{@session.locale}/*.#{twodigit @params.mm}.#{@params.yyyy}-#{@params.name}.html")[1]
-    @title       = iiin "be_#{@params.name}"
+  "/blog/:uid": =>
+    entry = Entry @params.uid
+    return status: 404 unless entry
+    @title       = entry.name
     @description = iiin "b_description"
-    content      = readfile file
-    return content
-  "/blog/raw/:file": =>
-    layout: false, readfile "page/blog/#{@session.locale}/raw/#{@params.file}"
-  "/blog/*": => redirect_to: "/blog"
+    close!
+    return entry.content[@session.locale]

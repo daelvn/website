@@ -126,14 +126,14 @@ iframe {
   padding: 10px;
 } */
 
-#login input {
+input {
   border: none;
   background-color: lightgray;
   color: black;
   padding: 10px;
 }
 
-#login input:focus {
+input:focus {
   outline: none;
 }
 

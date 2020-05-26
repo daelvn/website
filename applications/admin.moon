@@ -1,4 +1,5 @@
 import respond_to from require "lapis.application"
+import config     from require "util.config"
 lapis                = require "lapis"
 csrf                 = require "lapis.csrf"
 discount             = require "discount"
@@ -39,8 +40,19 @@ class Admin extends lapis.Application
       render: "admin.upload.blog"
     POST: =>
       csrf.assert_token @
-      --
+      -- (discount.compile @params.entry).body
+      -- create markdown entry list
+      tmarkdown = {}
+      for lang in *config.dxvn.languages
+        tmarkdown[lang] = @params["entry_#{lang}"]
+      -- compile markdown
+      tcontent = {lang, (discount.compile content).body for lang, content in pairs tmarkdown}
+      log inspect tcontent
+      -- insert into database and write
+      import new, close from require "controllers.blog"
+      new @params.title, tcontent
+      close!
+      -- render
       @html ->
-        h1 @params.title
-        raw (discount.compile @params.entry).body
+        h1 "wrote blog"
   }

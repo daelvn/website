@@ -16,6 +16,13 @@ en:
   disc_h1: "hey there,"
   disc_h2: "hello, kind traveler, please take my discord."
 
+  -- languages
+  lang_en: "english"
+  lang_es: "spanish"
+
+  -- buttons
+  submit: "submit"
+
   -- login pages
   login:             "log in."
   register:          "sign up."
@@ -36,7 +43,10 @@ en:
   ]]
 
   -- admin pages
-  admin_upload_blog: "new blog entry."
+  admin_upload_blog:                "new blog entry."
+  admin_upload_blog_entry_name:     "entry name."
+  admin_upload_blog_entry_content:  "entry content."
+  admin_upload_blog_entry_codename: "entry codename."
 
   -- errors
   error_h1:           "uh oh!"

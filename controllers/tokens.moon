@@ -1,11 +1,10 @@
 -- Token management
 -- By daelvn
-import hashPassword, verifyPassword from require "util.auth"
-import db                           from require "util.db"
-import unbool, first                from require "util"
-import config                       from require "util.config"
-import sql                          from require "grasp.query"
-grasp                                  = require "grasp"
+import db            from require "util.db"
+import unbool, first from require "util"
+import config        from require "util.config"
+import sql           from require "grasp.query"
+grasp                   = require "grasp"
 
 -- Use lapis+sqlite or grasp backends
 BACKENDS = {

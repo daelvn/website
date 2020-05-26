@@ -22,6 +22,7 @@ config {"development", "production"}, ->
       admin    true
       -- other sections
       blog     true
+      blogalt  true
       poetry   true
       roleplay true
       avatars  true
@@ -40,6 +41,11 @@ config {"development", "production"}, ->
       guest    {"poetry/**"}
       basic    {"poetry/**", "blog/**"}
       roleplay {"**"}
+    paths ->
+      blog "page/blog2/"
+    languages {
+      "en", "es"
+    }
     db ->
       backend  "grasp"
       location "dxvn.db"

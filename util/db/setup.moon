@@ -5,6 +5,7 @@ import sql    from require "grasp.query"
 grasp            = require "grasp"
 
 statements = {
+  --- USERS ---
   -- Create the users table
   sql -> create "users", -> columns:
     username:    "TEXT NOT NULL UNIQUE"
@@ -12,6 +13,8 @@ statements = {
     scope:       "TEXT NOT NULL"
     created_at:  "DATE NOT NULL"
     admin:       "BOOLEAN NOT NULL CHECK (admin IN (0,1))"
+
+  --- TOKENS ---
   -- create the tokens table
   sql -> create "tokens", -> columns:
     token:       "TEXT NOT NULL UNIQUE"
@@ -20,19 +23,14 @@ statements = {
   sql -> insert into "tokens", -> values:
     token: "AAAAA"
     scope: "scope:admin"
-  -- Create a basic admin account
-  -- Will be asked to change it immediately (forcechange)
-  --"INSERT INTO users VALUES ('admin', '#{hashPassword "ddddd"}', date('now'), 1, 1)"
-  -- sql -> insert into "users", -> values:
-  --   username:    "admin"
-  --   password:    "yeye"
-  --   created:     raw "datetime('now')"
-  --   admin:       true
-  --   forcechange: true
-  -- sql -> update "users", ->
-  --   where username: "admin"
-  --   values:
-  --     password: "yoyo"
+  
+  --- BLOG ---
+  -- create the blog table
+  sql -> create "blog", -> columns:
+    uid:        "TEXT NOT NULL UNIQUE"
+    name:       "TEXT NOT NULL"
+    created_at: "DATE NOT NULL"
+    filename:   "TEXT NOT NULL"
 }
 
 -- open database

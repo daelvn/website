@@ -13,10 +13,9 @@ for lang in *config.dxvn.languages
   blog_table_columns.columns["title_#{lang}"] = "TEXT"
 
 poetry_table_columns = columns:
-  uid:        "TEXT NOT NULL UNIQUE"
   category:   "TEXT NOT NULL"
   order:      "INTEGER NOT NULL"
-  name:       "TEXT NOT NULL"
+  name:       "TEXT NOT NULL UNIQUE"
   created_at: "DATE NOT NULL"
   filename:   "TEXT NOT NULL" 
 
@@ -47,6 +46,19 @@ statements = {
   --- POETRY ---
   -- create the poetry table
   sql -> create "poetry", -> poetry_table_columns
+  -- create the category list
+  sql -> create "categories", -> columns:
+    name: "TEXT NOT NULL UNIQUE"
+  -- insert categories
+  sql -> insert into "categories", -> values: { name: "starters"      }
+  sql -> insert into "categories", -> values: { name: "philosophical" }
+  sql -> insert into "categories", -> values: { name: "dreams"        }
+  sql -> insert into "categories", -> values: { name: "odes"          }
+  sql -> insert into "categories", -> values: { name: "heartbreak"    }
+  sql -> insert into "categories", -> values: { name: "constellate"   }
+  sql -> insert into "categories", -> values: { name: "constellate2"  }
+  sql -> insert into "categories", -> values: { name: "angelic"       }
+  sql -> insert into "categories", -> values: { name: "other"         }
 }
 
 -- open database

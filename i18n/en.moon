@@ -43,22 +43,40 @@ en:
   ]]
 
   -- admin pages
-  admin_upload:                     "upload new content."
-  admin_upload_blog:                "new blog entry."
-  admin_upload_blog_entry_name:     "entry name."
-  admin_upload_blog_entry_name:     "entry title."
-  admin_upload_blog_entry_content:  "entry content."
-  admin_upload_blog_entry_codename: "entry codename."
-  admin_manage:                     "manage content."
-  admin_manage_blog:                "manage blog entries."
-  admin_manage_blog_name:           "entry name."
-  admin_manage_blog_actions:        "actions."
-  admin_manage_blog_title_en:       "english title."
-  admin_manage_blog_title_es:       "spanish title."
-  admin_manage_blog_delete:         "delete."
-  admin_manage_blog_edit:           "edit."
-  admin_manage_blog_change:         "change."
-  admin_manage_blog_view:           "view."
+  admin_upload:                       "upload new content."
+
+  admin_upload_blog:                  "new blog entry."
+  admin_upload_blog_entry_name:       "entry name."
+  admin_upload_blog_entry_title:      "entry title."
+  admin_upload_blog_entry_content:    "entry content."
+  admin_upload_blog_entry_codename:   "entry codename."
+
+  admin_upload_poetry:                "new poem."
+  admin_upload_poetry_entry_name:     "poem name."
+  admin_upload_poetry_entry_name:     "poem title."
+  admin_upload_poetry_entry_content:  "poem content."
+  admin_upload_poetry_entry_codename: "poem codename."
+  admin_upload_poetry_entry_category: "poem category."
+  admin_upload_poetry_entry_order:    "poem order."
+
+  admin_manage:                       "manage content."
+  admin_manage_actions:               "actions."
+  admin_manage_delete:                "delete."
+  admin_manage_edit:                  "edit."
+  admin_manage_change:                "change."
+  admin_manage_view:                  "view."
+
+  admin_manage_blog:                  "manage blog entries."
+  admin_manage_blog_name:             "entry name."
+  admin_manage_blog_title_en:         "english title."
+  admin_manage_blog_title_es:         "spanish title."
+
+  admin_manage_poetry:                "manage poems."
+  admin_manage_poetry_name:           "poem name."
+  admin_manage_poetry_title_en:       "english title."
+  admin_manage_poetry_title_es:       "spanish title."
+  admin_manage_poetry_category:       "poem category."
+  admin_manage_poetry_order:          "poem order."
 
   -- sections
   section_blog:     "blog"
@@ -133,10 +151,6 @@ en:
   b_description: "dael's blog and incoherent thoughts."
   b_date:        "date."
   b_entry:       "entry."
-  --
-  ["be_06_humanity"]:       "humanity."
-  ["be_08_go-back"]:        "go back."
-  ["be_08_accessible-art"]: "accessible art."
   
   -- poetry
   p_index:       "poetry."

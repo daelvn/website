@@ -11,7 +11,7 @@ readfile = (file) ->
 config {"development", "production"}, ->
   bind_host    "0.0.0.0"
   secret       readfile "secrets/secret.txt"
-  session_name "daelx_session"
+  session_name "dxvn_session"
   port 6563
 
   dxvn ->

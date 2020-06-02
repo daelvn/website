@@ -12,7 +12,7 @@ class ManageBlog extends Widget
           thead ->
             tr ->
               th @iiin "admin_manage_blog_name"
-              th @iiin "admin_manage_blog_actions"
+              th @iiin "admin_manage_actions"
               for lang in *config.dxvn.languages
                 th @iiin "admin_manage_blog_title_#{lang}"
           tbody ->
@@ -22,9 +22,9 @@ class ManageBlog extends Widget
                 tr ->
                   td -> span entry.name
                   td ->
-                    button type: "submit", name: "view",   value: entry.uid, @iiin "admin_manage_blog_view"
-                    button type: "submit", name: "delete", value: entry.uid, @iiin "admin_manage_blog_delete"
-                    button type: "submit", name: "edit",   value: entry.uid, @iiin "admin_manage_blog_edit"
-                    button type: "submit", name: "change", value: entry.uid, @iiin "admin_manage_blog_change"
+                    button type: "submit", name: "view",   value: entry.uid, @iiin "admin_manage_view"
+                    button type: "submit", name: "delete", value: entry.uid, @iiin "admin_manage_delete"
+                    button type: "submit", name: "edit",   value: entry.uid, @iiin "admin_manage_edit"
+                    button type: "submit", name: "change", value: entry.uid, @iiin "admin_manage_change"
                   for lang in *config.dxvn.languages
                     td -> input type: "text", name: "title_#{entry.name}_#{lang}", value: entry["title_#{lang}"]
